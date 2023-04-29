@@ -9,6 +9,7 @@ namespace BusinessLayer
 {
    public class StudentClassLayer
     {
+        // Reading from DB
         public IEnumerable<Student> Students
         {
             get // Read only property
@@ -54,12 +55,14 @@ namespace BusinessLayer
         public void AddStudent(Student student)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            // 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
 
                 con.Open(); // Opening a connection.
 
-                SqlCommand cmd = new SqlCommand("SpAddStudent", con);
+                SqlCommand cmd = new SqlCommand("SpAddStudent", con); // Reading from stored procedure
 
                 cmd.CommandType = CommandType.StoredProcedure;
 

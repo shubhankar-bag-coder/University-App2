@@ -28,5 +28,11 @@ namespace University_App2.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create()
+        {
+            return RedirectToAction("Index");
+        }
+
     }
 }
