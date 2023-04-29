@@ -63,10 +63,8 @@ namespace BusinessLayer
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //SqlCommand cmd = new SqlCommand("INSERT INTO Student (Name, Home_City, Department_Name, Course_Enrolled) VALUES ( @Name, @Home_City, @Department_Name, @Course_Enrolled)", con);
 
-                //cmd.CommandType = CommandType.Text;
-
+                // Adding new Query
                 SqlParameter paramName = new SqlParameter();
                 paramName.ParameterName = "@Name";
                 paramName.Value = student.Name;
