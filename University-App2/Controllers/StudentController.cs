@@ -29,7 +29,7 @@ namespace University_App2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create(string name, string Home_City, string Department_Name, string Course_Enrolled)
         {
             return RedirectToAction("Index");
         }
