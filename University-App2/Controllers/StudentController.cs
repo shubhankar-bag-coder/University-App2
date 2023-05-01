@@ -33,6 +33,10 @@ namespace University_App2.Controllers
         {
             Students student = new Students();
             student.name = name;
+            student.Home_City=Home_City;
+            student.Gender=Gender;
+            student.Department_Name=Department_Name;
+            student.Courses_Enrolled=Courses_Enrolled;
 
             StudentClassLayer studentClassLayer = new StudentClassLayer();
             studentClassLayer.AddStudent(student);
