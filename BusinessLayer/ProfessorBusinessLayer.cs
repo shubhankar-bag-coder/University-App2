@@ -10,7 +10,6 @@ namespace BusinessLayer
 {
     public class ProfessorBusinessLayer
     {
-        public int Professor_ID { get; set; }
         public string Professors_Name {get;set;}
         public string Department_Name { get; set; }
         public string Listof_Courses_taught { get; set; }

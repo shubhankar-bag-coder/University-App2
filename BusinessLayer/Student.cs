@@ -9,8 +9,7 @@ namespace BusinessLayer
 {
     [Table("Student")]
     public class Student
-    {
-        public int StudentID { get; set; }
+    {  
         public string Name { get; set; }
         public string Home_City { get; set; }
         public string Department_Name { get; set; }

@@ -31,6 +31,12 @@ namespace University_App2.Controllers
         [HttpPost]
         public ActionResult Create(string name, string Home_City, string Department_Name, string Course_Enrolled)
         {
+            Students student = new Students();
+            student.name = name;
+
+            StudentClassLayer studentClassLayer = new StudentClassLayer();
+            studentClassLayer.AddStudent(student);
+
             return RedirectToAction("Index");
         }
 
