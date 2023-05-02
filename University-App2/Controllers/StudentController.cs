@@ -14,34 +14,47 @@ namespace University_App2.Controllers
 {
     public class StudentController : Controller
     {
-        public ActionResult Students()
+        public ActionResult View_Students()
         {
             StudentClassLayer studentClassLayer = new StudentClassLayer();
-            List<Student> student= studentClassLayer.Students.ToList();
+            List<Student> student =studentClassLayer.Students.ToList();
 
             return View(student);
         }
 
+
         [HttpGet]
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult Create_Get()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Create(string name, string Home_City, string Department_Name, string Course_Enrolled)
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            Students student = new Students();
-            student.name = name;
-            student.Home_City=Home_City;
-            student.Gender=Gender;
-            student.Department_Name=Department_Name;
-            student.Courses_Enrolled=Courses_Enrolled;
-
             StudentClassLayer studentClassLayer = new StudentClassLayer();
-            studentClassLayer.AddStudent(student);
+            Student student = studentClassLayer.Students.Single(stu=> stu.StudentID == id );
 
-            return RedirectToAction("Index");
+            return View(student);
+        }
+
+
+        [HttpPost]
+        [ActionName("Create")]
+        public ActionResult Create_Post()
+        {
+            if(ModelState.IsValid)
+            {
+                Student student = new Student();
+                UpdateModel(student);
+
+                StudentClassLayer studentClassLayer = new StudentClassLayer();
+                studentClassLayer.AddStudent(student);
+
+                return RedirectToAction("View_Students", "Student");
+            }
+            return View();           
         }
 
     }

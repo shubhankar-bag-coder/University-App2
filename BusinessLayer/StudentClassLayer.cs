@@ -34,7 +34,8 @@ namespace BusinessLayer
 
                     while (rdr.Read()) //reading through each row
                     {
-                        Student student = new Student(); 
+                        Student student = new Student();
+                       //  student.StudentID = Convert.ToInt32(rdr["StudentID"]); 
                         student.Name = rdr["name"].ToString();
                         student.Home_City = rdr["Home_City"].ToString();
                         student.Department_Name = rdr["Department_Name"].ToString();
@@ -56,7 +57,6 @@ namespace BusinessLayer
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
-            // 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
 
